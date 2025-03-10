@@ -3,8 +3,6 @@ syntax on
 filetype plugin indent on
 
 
-colorscheme molokai
-
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -37,11 +35,33 @@ set list
 highlight NonText ctermfg=gray
 highlight SpecialKey ctermfg=gray
 
+
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+nnoremap <space> za
+
 "Quick split screen moves
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
 
 "Git-Fugitive
 set statusline=%{fugitive#statusline()}

@@ -2,6 +2,11 @@ set nocompatible
 syntax on
 filetype plugin indent on
 
+call plug#begin()
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+call plug#end()
+
+let g:mkdp_browser = $HOME . '/.vim/bin/brave_incognito.sh'
 
 set tabstop=4
 set shiftwidth=4
@@ -32,8 +37,8 @@ set colorcolumn=85
 
 set list
 "Invisible character colors
-highlight NonText ctermfg=gray
-highlight SpecialKey ctermfg=gray
+"highlight NonText ctermfg=gray
+"highlight SpecialKey ctermfg=gray
 
 
 au BufNewFile,BufRead *.py
